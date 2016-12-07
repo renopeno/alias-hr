@@ -1,0 +1,19 @@
+.App {
+  margin: 0 auto;
+  text-align: center;
+
+}
+.currentWord {
+  margin-bottom: 20px;
+  color: #13bad0;
+  font-weight: bold;
+}
+
+.points,
+.timeLeft {
+  display: inline-block;
+  margin: 0 35px;
+  margin-bottom: 20px;
+  color: #9d3ccb;
+  font-weight: bold;
+}
