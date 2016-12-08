@@ -13,6 +13,10 @@
   cursor: pointer;
   outline: none;
 }
+.counterButton:focus {
+  border-right: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
 .decrease {
   color: #d9392f;
 }

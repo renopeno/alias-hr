@@ -4,13 +4,12 @@ class TimeLeft extends Component {
 
   constructor(props){
     super(props);
-    this.timer = null;
     this.state = {
       counter: 60
     };
   }
 
-  secondsLeft() {
+  secondsLeft () {
 
       // Start timer
       this.timer = setInterval( () => {
@@ -31,7 +30,7 @@ class TimeLeft extends Component {
 
   }
 
-  componentDidMount() {
+  componentDidMount () {
 
     // Start my timer function when App is rendered
     this.secondsLeft();

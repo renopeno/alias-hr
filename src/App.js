@@ -11,16 +11,45 @@ import IncreaseScore from './components/IncreaseScore';
 
 class App extends Component {
 
+      constructor(props){
+        super(props);
+        this.state = {
+          points: 0
+        };
+      }
+
+      decreaseScore = (event) => {
+        event.preventDefault()
+        let decreasePts = this.state.points;
+        decreasePts --;
+        this.setState({
+          points: decreasePts
+        })
+      }
+
+      increaseScore = (event) => {
+        event.preventDefault()
+        let increasePts = this.state.points;
+        increasePts ++;
+        this.setState({
+          points: increasePts
+        })
+      }
+
+      componentDidMount () {
+
+      }
+
 
   render() {
     return (
       <div className="App">
         <Nav></Nav>
         <TimeLeft></TimeLeft>
-        <Points></Points>
+        <Points points={this.state.points}></Points>
         <CurrentWord></CurrentWord>
-        <DecreaseScore></DecreaseScore>
-        <IncreaseScore></IncreaseScore>
+        <DecreaseScore decreaseScore={this.decreaseScore}></DecreaseScore>
+        <IncreaseScore increaseScore={this.increaseScore}></IncreaseScore>
       </div>
     );
   }

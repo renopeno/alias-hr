@@ -4,7 +4,12 @@ class IncreaseScore extends Component {
 
   render () {
     return (
-      <button id="increase" className="counterButton increase"> + </button>
+      <button
+        id="increase"
+        className="counterButton increase"
+        onClick={this.props.increaseScore}>
+         +
+      </button>
     );
   }
 }
