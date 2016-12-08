@@ -12,12 +12,9 @@ class TimeLeft extends Component {
 
   secondsLeft() {
 
-
-      var self = this;
-
       // Start timer
       this.timer = setInterval( () => {
-        let count = self.state.counter;
+        let count = this.state.counter;
         count --;
 
         // Stop timer when it reaches 0
