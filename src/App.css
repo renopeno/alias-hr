@@ -1,19 +1,36 @@
 .App {
-  margin: 0 auto;
+  margin: 2rem auto 0 auto;
   text-align: center;
-
 }
+.word-wrapper {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
 .currentWord {
-  margin-bottom: 20px;
-  color: #13bad0;
-  font-weight: bold;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 600;
+  padding: 0;
 }
 
 .points,
 .timeLeft {
   display: inline-block;
-  margin: 0 35px;
-  margin-bottom: 20px;
-  color: #9d3ccb;
-  font-weight: bold;
+  padding: 1em;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 400;
 }

@@ -1,6 +1,28 @@
 nav {
-  text-align: right;
-  padding: 5px 10px;
-  border-bottom: 2px solid #ccc;
-  margin-bottom: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: transparent;
+}
+nav ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: .5em;
+}
+nav ul li {
+  cursor: pointer;
+  list-style: none;
+  flex-grow: 1;
+  text-align: center;
+}
+nav ul li .navigation--item-icon {
+  color: #ffffff;
+  font-size: 2em;
+}
+nav ul li .navigation--item-text {
+  font-size: 1em;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 100;
 }

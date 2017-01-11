@@ -1,25 +1,24 @@
+.buttons {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+}
 .counterButton {
-  width: 60px;
-  height: 60px;
-  padding: 10px;
+  cursor: pointer;
   background: transparent;
   border:0;
-  border-right: 3px solid #ccc;
-  border-bottom: 3px solid #ccc;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 1em;
-  margin: 0 20px 20px 20px;
-  cursor: pointer;
-  outline: none;
-}
-.counterButton:focus {
-  border-right: 2px solid #ddd;
-  border-bottom: 2px solid #ddd;
+  font-size: 5em;
+  padding: .5em;
+  outline: 0;
 }
 .decrease {
-  color: #d9392f;
+  /*border: 5px solid #da5e56;
+  background: #da5e56;*/
+  /*box-shadow: .05em .05em .25em #731d1d;*/
 }
 .increase {
-  color: #5fec2e;
+  /*border: 5px solid #5bd964;
+  background: #5bd964;*/
+  /*box-shadow: .05em .05em .25em #0d6714;*/
 }

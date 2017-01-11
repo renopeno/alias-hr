@@ -8,7 +8,7 @@ class IncreaseScore extends Component {
         id="increase"
         className="counterButton increase"
         onClick={this.props.increaseScore}>
-         +
+         👍🏻
       </button>
     );
   }
