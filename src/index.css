@@ -2,11 +2,40 @@
 
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   background: linear-gradient(-15deg, #6b1235, #f04f98);
   overflow: hidden;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: transparent;
+}
+nav ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: .5em;
+}
+nav ul li {
+  cursor: pointer;
+  list-style: none;
+  flex-grow: 1;
+  text-align: center;
+}
+nav ul li .navigation--item-icon {
+  color: #ffffff;
+  font-size: 2em;
+}
+nav ul li .navigation--item-text {
+  font-size: 1em;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 100;
 }
