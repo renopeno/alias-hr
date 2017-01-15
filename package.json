@@ -1,6 +1,6 @@
 {
   "name": "alias",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "private": true,
   "devDependencies": {
     "font-awesome": "^4.7.0",

@@ -3,12 +3,11 @@ import React, { Component } from 'react';
 class Nav extends Component {
 
   startSession = () => {
-    this.context.router.transitionTo(`game`);
-
+    this.context.router.transitionTo("game");
   }
 
   goToHome = () => {
-    this.context.router.transitionTo(`/`);
+    this.context.router.transitionTo("/");
   }
 
 
@@ -22,8 +21,8 @@ class Nav extends Component {
           </li>
 
           <li className="navigation--item" onClick={this.goToHome}>
-              <div className="navigation--item-icon"><i className="fa fa-close" aria-hidden="true"></i></div>
-              <div className="navigation--item-text">Exit Game</div>
+              <div className="navigation--item-icon"><i className="fa fa-home" aria-hidden="true"></i></div>
+              <div className="navigation--item-text">Back to Home</div>
           </li>
 
           <li className="navigation--item">
@@ -32,8 +31,8 @@ class Nav extends Component {
           </li>
 
           <li className="navigation--item">
-              <div className="navigation--item-icon"><i className="fa fa-lightbulb-o" aria-hidden="true"></i></div>
-              <div className="navigation--item-text">Dark Mode</div>
+              <div className="navigation--item-icon"><i className="fa fa-pencil" aria-hidden="true"></i></div>
+              <div className="navigation--item-text">Add Words</div>
           </li>
         </ul>
       </nav>
