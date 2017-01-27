@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 class Nav extends Component {
 
   startSession = () => {
-    this.context.router.transitionTo("game");
+    this.props.goTo("Session");
   }
 
   goToHome = () => {
-    this.context.router.transitionTo("/");
+    window.location.reload();
   }
 
 

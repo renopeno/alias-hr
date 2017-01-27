@@ -1,0 +1,68 @@
+.App {
+  margin: 2rem auto 0 auto;
+  text-align: center;
+}
+.word-wrapper {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+.currentWord {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 600;
+  padding: 0;
+}
+
+.points,
+.timeLeft {
+  display: inline-block;
+  padding: 1em;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.buttons {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+}
+
+
+
+.counterButton {
+  cursor: pointer;
+  background: transparent;
+  border:0;
+  font-size: 5em;
+  padding: .5em;
+  outline: 0;
+
+  /* Remove blue highlight on mobile Chrome */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+@media all and (min-height:540px) {
+
+}

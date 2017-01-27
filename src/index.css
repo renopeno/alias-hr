@@ -75,7 +75,7 @@ h3 {
   color: #fff;
   text-align: center;
 }
-.form--create-team {
+.white-wrapper {
   display: block;
   padding: .35em;
   margin: 0 auto;
@@ -163,7 +163,7 @@ h3 {
     width: 25%;
   }
 
-  .form--create-team {
+  .white-wrapper {
     padding: 1em;
   }
 
