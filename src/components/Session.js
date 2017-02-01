@@ -33,44 +33,36 @@ class Session extends Component {
     this.props.session.points --;
     this.getCurrentWord();
     this.props.mergeSessionObject(this.sessionObject);
-    console.log(this.props.session);
   }
 
   increaseScore = () => {
     this.props.session.points ++;
     this.getCurrentWord();
     this.props.mergeSessionObject(this.sessionObject);
-    console.log(this.props.session);
   }
 
   secondsLeft = () => {
-    let secondsLeft = 11;
+    let secondsLeft = 3;
 
     // Start timer
     this.timer = setInterval( () => {
       secondsLeft --;
-
-      // Stop timer when it reaches 0
       if ( secondsLeft === 0 ) {
         clearInterval(this.timer);
+        this.props.goTo("Stats");
+        this.props.changeStateId();
       }
-
-      // Add seconds value to state
+      // Add seconds value to App state
       this.props.mergeCounterToState(secondsLeft);
-
     }, 1000);
   }
 
   componentWillMount = () => {
-    // Get first word for this session
-
-
     this.props.mergeSessionObject(this.sessionObject);
-
   }
 
   componentDidMount = () => {
-        this.createSessionObject();
+    this.createSessionObject();
     this.getCurrentWord();
     this.props.mergeCounterToState();
     this.secondsLeft();
@@ -85,7 +77,8 @@ class Session extends Component {
       <div className="App">
         <div className="header">
           <TimeLeft
-            counter={this.props.counter} mergeCounterToState={this.props.mergeCounterToState}
+            counter={this.props.counter}
+            mergeCounterToState={this.props.mergeCounterToState}
           />
           <Points points={this.props.points} />
         </div>

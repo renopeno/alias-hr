@@ -7,24 +7,27 @@ import Nav from './components/Nav';
 import AddTeams from './components/AddTeams';
 import Session from './components/Session';
 import WhoIsNext from './components/WhoIsNext';
+import Stats from './Stats';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      id: 0,
       component: "AddTeams",
       session: {},
       teams: []
     }
   }
 
-  navigation = (goTo) => {
+  // Method for switching between components that don't require .preventDefault()
+  goTo = (goTo) => {
     this.setState({
       component: goTo
     });
   }
 
-  startSession = (e) => {
+  whoIsNext = (e) => {
     e.preventDefault();
     this.setState({
       component: "WhoIsNext"
@@ -36,6 +39,24 @@ class App extends Component {
       component: "Session"
     });
   }
+
+  // After every session, change id for next one
+  changeStateId = () => {
+    let currentId = this.state.id;
+    let teamsLength = this.state.teams.length - 2;
+
+    // Make cycle
+    if(currentId <= teamsLength){
+      currentId ++;
+    } else if (currentId > teamsLength) {
+      currentId = 0;
+    }
+
+    this.setState({
+      id: currentId
+    })
+  }
+
 
   mergeTeamsToState = (teams) => {
     this.setState({
@@ -59,7 +80,7 @@ class App extends Component {
     return (
       <div>
         <Nav
-          goTo={this.navigation}
+          goTo={this.goTo}
         />
         <div className="home">
           { this.state.component !== "Session" &&
@@ -71,8 +92,7 @@ class App extends Component {
 
           { this.state.component === "AddTeams" &&
             <AddTeams
-              startSession={this.startSession}
-              addNewTeam={this.addNewTeam}
+              whoIsNext={this.whoIsNext}
               teams={this.state.teams}
               mergeTeamsToState={this.mergeTeamsToState}
             />
@@ -80,12 +100,15 @@ class App extends Component {
 
           { this.state.component === "Session" &&
             <Session
+              state={this.state}
               session={this.state.session}
               word={this.state.session.word}
               mergeCounterToState={this.mergeCounterToState}
               mergeSessionObject={this.mergeSessionObject}
               teams={this.state.teams}
               counter={this.state.seconds}
+              goTo={this.goTo}
+              changeStateId={this.changeStateId}
              />
           }
 
@@ -96,10 +119,22 @@ class App extends Component {
             />
           }
 
+          { this.state.component === "Stats" &&
+            <Stats
+              state={this.state}
+              goTo={this.goTo}
+              whoIsNext={this.whoIsNext}
+            />
+          }
+
         </div>
       </div>
     );
   }
+}
+
+App.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default App;

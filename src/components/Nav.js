@@ -7,7 +7,17 @@ class Nav extends Component {
   }
 
   goToHome = () => {
-    window.location.reload();
+    if(window.location.hash === "") {
+      window.location.reload();
+      // console.log(window.location);
+    }
+
+    this.context.router.transitionTo("");
+
+  }
+
+  goToWords = () => {
+    this.context.router.transitionTo("words");
   }
 
 
@@ -15,23 +25,31 @@ class Nav extends Component {
     return (
       <nav>
         <ul id="navigation">
-          <li className="navigation--item" onClick={this.startSession}>
-              <div className="navigation--item-icon"><i className="fa fa-gamepad" aria-hidden="true"></i></div>
+          <li onClick={this.startSession}>
+              <div className="navigation--item-icon">
+                <i className="fa fa-gamepad" aria-hidden="true"></i>
+              </div>
               <div className="navigation--item-text">New Game</div>
           </li>
 
-          <li className="navigation--item" onClick={this.goToHome}>
-              <div className="navigation--item-icon"><i className="fa fa-home" aria-hidden="true"></i></div>
+          <li onClick={this.goToHome}>
+              <div className="navigation--item-icon">
+                <i className="fa fa-home" aria-hidden="true"></i>
+              </div>
               <div className="navigation--item-text">Back to Home</div>
           </li>
 
-          <li className="navigation--item">
-            <div className="navigation--item-icon"><i className="fa fa-cog" aria-hidden="true"></i></div>
+          <li>
+            <div className="navigation--item-icon">
+              <i className="fa fa-cog" aria-hidden="true"></i>
+            </div>
             <div className="navigation--item-text">Settings</div>
           </li>
 
-          <li className="navigation--item">
-              <div className="navigation--item-icon"><i className="fa fa-pencil" aria-hidden="true"></i></div>
+          <li onClick={this.goToWords}>
+              <div className="navigation--item-icon">
+                <i className="fa fa-pencil" aria-hidden="true"></i>
+              </div>
               <div className="navigation--item-text">Add Words</div>
           </li>
         </ul>

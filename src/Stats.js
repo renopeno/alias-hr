@@ -1,32 +1,37 @@
 import React, { Component } from 'react';
 import './index.css';
-import Nav from './components/Nav';
 
-class GuessedWords extends Component {
+class Stats extends Component {
 
-  startSession = (e) => {
-    e.preventDefault();
-    const sessionId = Date.now();
-    this.context.router.transitionTo(`game-${sessionId}`);
-  }
-
-  componentWillMount() {
-    console.log(this);
+  goToWhoIsNext = () => {
+    this.props.goTo("WhoIsNext")
   }
 
   render () {
     return (
       <div>
-        <Nav />
-        <h3>Words:</h3>
-        <p>dfdsfd </p>
+
+        <h3>Guessed Words are:</h3>
+
+        <div className="white-wrapper who-is-next">
+
+
+          <button
+            type="button"
+            onClick={this.goToWhoIsNext}
+            className="button--start-game">
+              NEXT
+          </button>
+
+        </div>
+
       </div>
     );
   }
 }
 
-GuessedWords.contextTypes = {
+Stats.contextTypes = {
   router: React.PropTypes.object
 }
 
-export default GuessedWords;
+export default Stats;

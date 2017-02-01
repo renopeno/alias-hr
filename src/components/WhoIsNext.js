@@ -4,11 +4,11 @@ import './WhoIsNext.css';
 
 class WhoIsNext extends Component {
 
-
   render () {
+    let sessionId = this.props.state.id;
+
     return (
       <div>
-
 
         <h3>Who is next?</h3>
 
@@ -16,22 +16,32 @@ class WhoIsNext extends Component {
 
           <div className="row">
             <span>
-              <i className="fa fa-users" aria-hidden="true"></i> Ekipa >
-              <strong> {(this.props.state.teams[0].teamName).toUpperCase()}</strong>
-            </span>
-            <br/>
+              <span>Team</span>
+              <span>
+                <strong>
+                  {(this.props.state.teams[sessionId].teamName).toUpperCase()}
+                </strong>
+              </span>
+              </span>
           </div>
           <div className="row">
             <span>
-              <i className="fa fa-user" aria-hidden="true"></i> Objašnjava >
-              <strong> {(this.props.state.teams[0].player1).toUpperCase()}</strong>
+              <span>Explaining</span>
+              <span>
+                <strong>
+                  {(this.props.state.teams[sessionId].player1).toUpperCase()}
+                </strong>
+              </span>
             </span>
-            <br/>
           </div>
           <div className="row">
             <span>
-              <i className="fa fa-user-o" aria-hidden="true"></i> Pogađa >
-              <strong> {(this.props.state.teams[0].player2).toUpperCase()}</strong>
+              <span>Guessing</span>
+              <span>
+                <strong>
+                  {(this.props.state.teams[sessionId].player2).toUpperCase()}
+                </strong>
+              </span>
             </span>
           </div>
 
@@ -43,7 +53,6 @@ class WhoIsNext extends Component {
           </button>
 
         </div>
-
 
       </div>
     );

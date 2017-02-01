@@ -32,7 +32,7 @@ class AddTeams extends Component {
 
   render () {
     return (
-          <form className="white-wrapper" onSubmit={this.props.startSession}>
+          <form className="white-wrapper" onSubmit={this.props.whoIsNext}>
             <input
               type="text"
               className="input--team-name"
@@ -66,8 +66,5 @@ class AddTeams extends Component {
   }
 }
 
-AddTeams.contextTypes = {
-  router: React.PropTypes.object
-}
 
 export default AddTeams;
