@@ -12,7 +12,9 @@ class AddTeams extends Component {
       player1: this.player1.value,
       player2: this.player2.value,
       currentSessionPoints: 0,
-      fullMatchPoints: 0
+      fullMatchPoints: 0,
+      correctWords: [],
+      incorrectWords: []
     };
     // Create copy of current teams array from state
     const teams = [...this.props.teams];
@@ -32,36 +34,40 @@ class AddTeams extends Component {
 
   render () {
     return (
-          <form className="white-wrapper" onSubmit={this.props.whoIsNext}>
-            <input
-              type="text"
-              className="input--team-name"
-              ref={ (input) => this.teamName = input }
-              placeholder="Team name"
-            />
-            <input
-              type="text"
-              className="input--player-name"
-              ref={ (input) => this.player1 = input }
-              placeholder="Player 1 name"
-            />
-            <input
-              type="text"
-              className="input--player-name"
-              ref={ (input) => this.player2 = input }
-              placeholder="Player 2 name" />
-            <button
-              type="button"
-              className="button--create-team"
-              onClick={this.addNewTeam}>
-                CREATE THIS TEAM
-            </button>
-            <button
-              type="submit"
-              className="button--start-game">
-                NEXT
-            </button>
-          </form>
+      <div>
+        <form className="addteams-wrapper">
+          <input
+            type="text"
+            className="input--team-name"
+            ref={ (input) => this.teamName = input }
+            placeholder="Ime ekipe"
+          />
+          <input
+            type="text"
+            className="input--player-name"
+            ref={ (input) => this.player1 = input }
+            placeholder="Igrač 1"
+          />
+          <input
+            type="text"
+            className="input--player-name"
+            ref={ (input) => this.player2 = input }
+            placeholder="Igrač 2" />
+          <button
+            type="button"
+            className="button--create-team"
+            onClick={this.addNewTeam}>
+              Kreiraj ekipu
+          </button>
+        </form>
+        <button
+          type="submit"
+          className="button--start-game"
+          onClick={this.props.whoIsNext}>
+            DALJE
+        </button>
+      </div>
+
     );
   }
 }

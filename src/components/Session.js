@@ -12,9 +12,8 @@ import IncreaseScore from './session/IncreaseScore';
 class Session extends Component {
   constructor() {
     super();
-    this.sessionObject = {
-      points: 0
-    }
+    this.sessionObject = {};
+    this.teamsObject = {};
   }
 
   getCurrentWord = () => {
@@ -23,26 +22,36 @@ class Session extends Component {
     this.sessionObject.word = currentWord;
   }
 
-  createSessionObject = (object) => {
+  createSessionObject = () => {
     this.currentState = {...this.props.session};
     this.currentState = this.sessionObject;
-    // console.log(this.currentState);
   }
 
   decreaseScore = () => {
-    this.props.session.points --;
+    let sessionId = this.props.state.id;
+    let team = this.props.state.teams[sessionId];
+
+    team.incorrectWords.push(this.props.session.word);
+    team.currentSessionPoints --;
     this.getCurrentWord();
     this.props.mergeSessionObject(this.sessionObject);
+
   }
 
   increaseScore = () => {
-    this.props.session.points ++;
+    let sessionId = this.props.state.id;
+    let team = this.props.state.teams[sessionId];
+
+
+    team.correctWords.push(this.props.session.word);
+    team.currentSessionPoints ++;
     this.getCurrentWord();
     this.props.mergeSessionObject(this.sessionObject);
+
   }
 
   secondsLeft = () => {
-    let secondsLeft = 3;
+    let secondsLeft = 4;
 
     // Start timer
     this.timer = setInterval( () => {
@@ -50,18 +59,18 @@ class Session extends Component {
       if ( secondsLeft === 0 ) {
         clearInterval(this.timer);
         this.props.goTo("Stats");
-        this.props.changeStateId();
       }
       // Add seconds value to App state
       this.props.mergeCounterToState(secondsLeft);
     }, 1000);
   }
 
-  componentWillMount = () => {
-    this.props.mergeSessionObject(this.sessionObject);
-  }
+  // componentWillMount = () => {
+  //   this.props.mergePoints(this.sessionObject);
+  // }
 
   componentDidMount = () => {
+    this.props.mergeSessionObject(this.sessionObject);
     this.createSessionObject();
     this.getCurrentWord();
     this.props.mergeCounterToState();
@@ -80,9 +89,11 @@ class Session extends Component {
             counter={this.props.counter}
             mergeCounterToState={this.props.mergeCounterToState}
           />
-          <Points points={this.props.points} />
+          <Points state={this.props.state} />
         </div>
+
         <CurrentWord word={this.props.word} />
+
         <div className="buttons">
           <DecreaseScore decreaseScore={this.decreaseScore} />
           <IncreaseScore increaseScore={this.increaseScore} />

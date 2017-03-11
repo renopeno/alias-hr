@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class Nav extends Component {
 
   startSession = () => {
@@ -24,35 +23,7 @@ class Nav extends Component {
   render () {
     return (
       <nav>
-        <ul id="navigation">
-          <li onClick={this.startSession}>
-              <div className="navigation--item-icon">
-                <i className="fa fa-gamepad" aria-hidden="true"></i>
-              </div>
-              <div className="navigation--item-text">New Game</div>
-          </li>
-
-          <li onClick={this.goToHome}>
-              <div className="navigation--item-icon">
-                <i className="fa fa-home" aria-hidden="true"></i>
-              </div>
-              <div className="navigation--item-text">Back to Home</div>
-          </li>
-
-          <li>
-            <div className="navigation--item-icon">
-              <i className="fa fa-cog" aria-hidden="true"></i>
-            </div>
-            <div className="navigation--item-text">Settings</div>
-          </li>
-
-          <li onClick={this.goToWords}>
-              <div className="navigation--item-icon">
-                <i className="fa fa-pencil" aria-hidden="true"></i>
-              </div>
-              <div className="navigation--item-text">Add Words</div>
-          </li>
-        </ul>
+        <button className="nav-icon"></button>
       </nav>
     );
   }

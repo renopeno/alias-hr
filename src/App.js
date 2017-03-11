@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './img/logo.svg';
 import Nav from './components/Nav';
 
 
@@ -14,13 +13,14 @@ class App extends Component {
     super();
     this.state = {
       id: 0,
+      cycle: 0,
       component: "AddTeams",
       session: {},
       teams: []
     }
   }
 
-  // Method for switching between components that don't require .preventDefault()
+  // Method for switching between components
   goTo = (goTo) => {
     this.setState({
       component: goTo
@@ -29,9 +29,14 @@ class App extends Component {
 
   whoIsNext = (e) => {
     e.preventDefault();
-    this.setState({
-      component: "WhoIsNext"
-    });
+    if(this.state.teams.length > 0){
+      this.setState({
+        component: "WhoIsNext"
+      });
+    } else {
+      alert("Nije dodana niti jedna ekipa!");
+    }
+
   }
 
   loadGame = () => {
@@ -42,6 +47,7 @@ class App extends Component {
 
   // After every session, change id for next one
   changeStateId = () => {
+    let currentCycle = this.state.cycle;
     let currentId = this.state.id;
     let teamsLength = this.state.teams.length - 2;
 
@@ -50,13 +56,20 @@ class App extends Component {
       currentId ++;
     } else if (currentId > teamsLength) {
       currentId = 0;
+      currentCycle ++;
     }
 
     this.setState({
-      id: currentId
-    })
+      id: currentId,
+      cycle: currentCycle
+    });
   }
 
+  mergeSessionObject = (session) => {
+    this.setState({
+      session
+    });
+  }
 
   mergeTeamsToState = (teams) => {
     this.setState({
@@ -64,9 +77,9 @@ class App extends Component {
     });
   }
 
-  mergeSessionObject = (session) => {
+  mergePoints = (object) => {
     this.setState({
-      session
+      object
     });
   }
 
@@ -82,14 +95,13 @@ class App extends Component {
         <Nav
           goTo={this.goTo}
         />
-        <div className="home">
-          { this.state.component !== "Session" &&
-            <img src={logo} alt="alias-logo" className="logo" />
-          }
+        <div className="balloons">
+          <div className="balloon1"></div>
+          <div className="balloon2"></div>
+        </div>
           { this.state.component === "AddTeams" &&
-            <h3>Welcome to <strong>Alias</strong></h3>
+            <div className="logo"> </div>
           }
-
           { this.state.component === "AddTeams" &&
             <AddTeams
               whoIsNext={this.whoIsNext}
@@ -105,10 +117,10 @@ class App extends Component {
               word={this.state.session.word}
               mergeCounterToState={this.mergeCounterToState}
               mergeSessionObject={this.mergeSessionObject}
+              mergePoints={this.mergePoints}
               teams={this.state.teams}
               counter={this.state.seconds}
               goTo={this.goTo}
-              changeStateId={this.changeStateId}
              />
           }
 
@@ -124,10 +136,9 @@ class App extends Component {
               state={this.state}
               goTo={this.goTo}
               whoIsNext={this.whoIsNext}
+              changeStateId={this.changeStateId}
             />
           }
-
-        </div>
       </div>
     );
   }
