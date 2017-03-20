@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Nav from './components/Nav';
+// import Nav from './components/Nav';
 
 
 // import components
 import AddTeams from './components/AddTeams';
 import Session from './components/Session';
 import WhoIsNext from './components/WhoIsNext';
-import Stats from './Stats';
+import Stats from './components/Stats';
 
 class App extends Component {
   constructor() {
@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       id: 0,
       cycle: 0,
+      seconds: 3,
       component: "AddTeams",
       session: {},
       teams: []
@@ -92,53 +93,58 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Nav
+        {/* <Nav
           goTo={this.goTo}
-        />
+        /> */}
+
+        { this.state.component !== "WhoIsNext" &&
         <div className="balloons">
           <div className="balloon1"></div>
           <div className="balloon2"></div>
         </div>
-          { this.state.component === "AddTeams" &&
-            <div className="logo"> </div>
-          }
-          { this.state.component === "AddTeams" &&
-            <AddTeams
-              whoIsNext={this.whoIsNext}
-              teams={this.state.teams}
-              mergeTeamsToState={this.mergeTeamsToState}
-            />
-          }
+        }
 
-          { this.state.component === "Session" &&
-            <Session
-              state={this.state}
-              session={this.state.session}
-              word={this.state.session.word}
-              mergeCounterToState={this.mergeCounterToState}
-              mergeSessionObject={this.mergeSessionObject}
-              mergePoints={this.mergePoints}
-              teams={this.state.teams}
-              counter={this.state.seconds}
-              goTo={this.goTo}
-             />
-          }
+        { this.state.component === "AddTeams" &&
+          <div className="logo"> </div>
+        }
+        { this.state.component === "AddTeams" &&
+          <AddTeams
+            whoIsNext={this.whoIsNext}
+            teams={this.state.teams}
+            mergeTeamsToState={this.mergeTeamsToState}
+          />
+        }
 
-          { this.state.component === "WhoIsNext" &&
-            <WhoIsNext
+        { this.state.component === "Session" &&
+          <Session
             state={this.state}
-            loadGame={this.loadGame}
-            />
-          }
+            session={this.state.session}
+            word={this.state.session.word}
+            mergeCounterToState={this.mergeCounterToState}
+            mergeSessionObject={this.mergeSessionObject}
+            mergePoints={this.mergePoints}
+            teams={this.state.teams}
+            counter={this.state.seconds}
+            goTo={this.goTo}
+           />
+        }
 
-          { this.state.component === "Stats" &&
-            <Stats
-              state={this.state}
-              goTo={this.goTo}
-              whoIsNext={this.whoIsNext}
-              changeStateId={this.changeStateId}
-            />
-          }
+        { this.state.component === "WhoIsNext" &&
+          <WhoIsNext
+          state={this.state}
+          loadGame={this.loadGame}
+          />
+        }
+
+        { this.state.component === "Stats" &&
+          <Stats
+            state={this.state}
+            goTo={this.goTo}
+            whoIsNext={this.whoIsNext}
+            changeStateId={this.changeStateId}
+          />
+        }
+
       </div>
     );
   }

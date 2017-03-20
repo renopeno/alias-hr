@@ -35,36 +35,36 @@ class AddTeams extends Component {
   render () {
     return (
       <div>
-        <form className="addteams-wrapper">
+        <form className="addTeams">
           <input
             type="text"
-            className="input--team-name"
+            className="addTeams addTeams__input"
             ref={ (input) => this.teamName = input }
             placeholder="Ime ekipe"
           />
           <input
             type="text"
-            className="input--player-name"
+            className="addTeams addTeams__input"
             ref={ (input) => this.player1 = input }
             placeholder="Igrač 1"
           />
           <input
             type="text"
-            className="input--player-name"
+            className="addTeams addTeams__input"
             ref={ (input) => this.player2 = input }
             placeholder="Igrač 2" />
           <button
             type="button"
-            className="button--create-team"
+            className="btn btn__primary btn__add"
             onClick={this.addNewTeam}>
-              Kreiraj ekipu
+              + Dodaj ekipu
           </button>
         </form>
         <button
           type="submit"
-          className="button--start-game"
+          className="btn btn__white"
           onClick={this.props.whoIsNext}>
-            DALJE
+            Start
         </button>
       </div>
 

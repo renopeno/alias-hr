@@ -9,8 +9,7 @@ body {
   height: 100%;
   margin: 0 auto;
   padding: 0;
-  padding-top: 1em;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 1em;
   background: #0AA1C8;
   background-image: linear-gradient(46deg, #0DD0FA 0%, #0AA1C8 54%, #9B0078 100%);
@@ -19,6 +18,8 @@ body {
   max-width: 720px;
   background-attachment: fixed;
 
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
   /* Remove blue highlight on mobile when clicking on items */
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -30,8 +31,9 @@ body {
   user-select: none;
 }
 
-.nav-icon {
-  position: absolute;
+.button--menu {
+  cursor: pointer;
+  position: fixed;
   top: 1.5em;
   right: 1em;
   width: 75px;
@@ -42,9 +44,7 @@ body {
   background-repeat: no-repeat;
   border: 0;
 }
-.nav-bar:hover {
-  cursor: pointer;
-}
+
 .balloons {
   position: fixed;
   z-index: -3;
@@ -56,37 +56,38 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   overflow: hidden;
+  opacity: .45;
 }
 
 .logo {
   display: block;
-  margin: 1em auto .2em auto;
-  height: 150px;
+  margin: 2em auto;
+  height: 50px;
   background-image: url("./img/logo.svg");
   background-position: 50%;
   background-repeat: no-repeat;
 }
 
 h3 {
-  font-size: 2em;
-  font-weight: 600;
+  font-size: 1.5em;
+  font-weight: 400;
   color: #fff;
   text-align: center;
   margin: .35em auto;
 }
+.questionMark  {
+  font-size: 1.75em;
+  font-weight: bold;
+}
+
+
 
 
 @media all and (min-height:540px) {
   .balloons {
     height: 65%;
   }
-  body {
-    padding-top: 3em;
-  }
   .logo {
-    margin: 2em auto 1em;
-    display: block;
-    margin: 1em auto;
-    height: 200px;
+    height: 100px;
   }
 }

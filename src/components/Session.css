@@ -4,7 +4,7 @@
 }
 .word-wrapper {
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 0;
   right: 0;
   text-align: center;
@@ -12,30 +12,25 @@
 }
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  text-align: center;
 }
-
-
 .currentWord {
   color: #fff;
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0;
 }
 
 .points,
 .timeLeft {
   display: inline-block;
-  padding: 1em;
+  padding: .25em 1em;
   color: #fff;
   font-size: 1.5em;
   font-weight: 400;
 }
 
-.buttons {
+.pointsButtonContainer {
   position: fixed;
   bottom: 80px;
   left: 0;
@@ -43,14 +38,13 @@
 }
 
 
-
-.counterButton {
+.pointsButton {
   cursor: pointer;
-  background: transparent;
   border:0;
   font-size: 5em;
   padding: .5em;
   outline: 0;
+  margin: 0 .25em;
 
   /* Remove blue highlight on mobile Chrome */
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -60,9 +54,12 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
 }
-
-@media all and (min-height:540px) {
-
+.increase {
+  background: url(../img/incScore.svg);
+  background-size: cover;
+}
+.decrease {
+  background: url(../img/decScore.svg);
+  background-size: cover;
 }

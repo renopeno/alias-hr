@@ -51,7 +51,7 @@ class Session extends Component {
   }
 
   secondsLeft = () => {
-    let secondsLeft = 4;
+    let secondsLeft = this.props.state.seconds;
 
     // Start timer
     this.timer = setInterval( () => {
@@ -60,14 +60,10 @@ class Session extends Component {
         clearInterval(this.timer);
         this.props.goTo("Stats");
       }
-      // Add seconds value to App state
+      // merge seconds to state
       this.props.mergeCounterToState(secondsLeft);
     }, 1000);
   }
-
-  // componentWillMount = () => {
-  //   this.props.mergePoints(this.sessionObject);
-  // }
 
   componentDidMount = () => {
     this.props.mergeSessionObject(this.sessionObject);
@@ -94,7 +90,7 @@ class Session extends Component {
 
         <CurrentWord word={this.props.word} />
 
-        <div className="buttons">
+        <div className="pointsButtonContainer">
           <DecreaseScore decreaseScore={this.decreaseScore} />
           <IncreaseScore increaseScore={this.increaseScore} />
         </div>

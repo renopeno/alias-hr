@@ -61,15 +61,15 @@ class Stats extends Component {
     return (
       <div>
         <h3>Riječi</h3>
-        <div className="white-wrapper who-is-next">
+        <div className="table">
           {renderCorrectWords}
           {renderIncorrectWords}
         </div>
         <button
           type="button"
           onClick={this.goToWhoIsNext}
-          className="button--start-game">
-            NEXT TEAM
+          className="btn btn__white">
+            Next team
         </button>
       </div>
     );

@@ -23,6 +23,7 @@ class WhoIsNext extends Component {
     let renderPoints = teams.map( (team, i) => {
       return <Points  team={team.teamName} points={team.fullMatchPoints} key={i} />
     })
+
     let objasnjava = () => {
       if( cycle % 2 === 0 || cycle === 0){
         return this.props.state.teams[sessionId].player1;
@@ -32,7 +33,7 @@ class WhoIsNext extends Component {
     }
 
     let pogada = () => {
-      if( cycle % 2 !== 0 || cycle !== 0){
+      if( cycle % 2 !== 0){
         return this.props.state.teams[sessionId].player1;
     } else {
         return this.props.state.teams[sessionId].player2;
@@ -41,39 +42,41 @@ class WhoIsNext extends Component {
 
     return (
       <div>
+        <div className="tablica">
 
-        <h3>Tablica</h3>
+          <h3>Tablica</h3>
+          <div className="table">
+            {renderPoints}
+          </div>
 
-        <div className="white-wrapper who-is-next">
-          {renderPoints}
-        </div>
+         </div>
 
-        <h3>Tko je sljedeći?</h3>
+        <h3>Tko je sljedeći <span className="questionMark">?</span></h3>
 
-        <div className="who-is-next">
+        <div className="table">
           <div className="row">
-            <span className="row--title">
+            <div className="row--title">
               {this.props.state.teams[sessionId].teamName}
-            </span>
+            </div>
           </div>
 
           <div className="row">
-            <span>
+            <div>
               Objašnjava: { objasnjava() }
-            </span>
+            </div>
           </div>
 
           <div className="row">
-              <span>
+              <div>
                   Pogađa: { pogada() }
-              </span>
+              </div>
           </div>
 
           <button
             type="button"
-            className="button--start-game"
+            className="btn btn__white"
             onClick={this.props.loadGame}>
-              KRENI
+              Kreni
           </button>
 
         </div>

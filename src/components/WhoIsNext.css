@@ -1,27 +1,25 @@
-.who-is-next {
+.table {
   padding: 1em;
   text-align: center;
   color: #fff;
   max-height: 60vh;
   overflow-y:auto;
-}
 
+}
 .row {
   position: relative;
+  max-width: 60%;
+  margin: .35em auto;
   padding: .25em;
-  border-radius: .35em;
+  border-radius: 50px;
   font-size: 1.15em;
-  font-weight: 100;
 }
 
-.row span {
-  display: block;
-  margin: .35em auto;
-}
 .row .row--title {
-  padding: 1em;
-  text-transform: uppercase;
+  padding: .25em;
+  font-size: 2.5em;
   font-weight: bold;
+  background: transparent;
 }
 .row:nth-child(odd) {
   background: rgba(255,255,255,.10);

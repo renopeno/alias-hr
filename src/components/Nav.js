@@ -23,7 +23,7 @@ class Nav extends Component {
   render () {
     return (
       <nav>
-        <button className="nav-icon"></button>
+        <button className="button--menu"></button>
       </nav>
     );
   }

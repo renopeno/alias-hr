@@ -1,69 +1,52 @@
-.addteams-wrapper {
+.addTeams {
   display: block;
   margin: 0 auto;
-  padding: .35em 0 .35em .35em;
+  padding: 0;
 }
-.input--team-name,
-.input--player-name,
-.button--create-team {
-  -webkit-appearance: none; /* remove inner shadow on mobile chrome */
+.addTeams__input {
   width: 90%;
-  margin: .25em auto .25em 10%; /* Added left margin to have 100% with width */
-  padding: .5em 2em;
-  border-radius: 50px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}
-
-.input--team-name,
-.input--player-name {
   background: rgba(0,0,0,0.11);
   color: #fff;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 1em;
-  font-weight: 100;
+  margin: .25em auto;
+  padding: .5em 2em;
   border: 0;
+  border-radius: 100px;
   outline: 0;
+  -webkit-appearance: none; /* remove inner shadow on mobile chrome */
 }
-
-.button--create-team {
+.btn {
   cursor: pointer;
-  font-size: 1em;
-  font-weight: 600;
+  display: block;
+  width: 60%;
+  text-align: center;
+  font-size: .85em;
+  font-weight: 700;
   text-transform: uppercase;
+  margin: 1em auto;
+  padding: 1em;
   border: 0;
-  background: #fff;
-  color: #554C9D;
-  transition: all .1s ease-in;
-  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.28);
+  border-radius: 100px;
+  transition: all .15s ease-in-out;
 }
-.button--start-game {
-  cursor: pointer;
-  position: fixed;
-  bottom: 2em;
-  left: 0;
-  right: 0;
-  width: 70%;
-  padding: .75em;
-  margin: .35em auto;
-  font-size: 1em;
-  font-weight: 600;
-  border: 0;
-  border-radius: 50px;
-  background: #fff;
-  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.28);
-  color: #554C9D;
-  transition: all .1s ease-in;
+.btn:hover {
+  transform: scale(1.05);
 }
-
-.button--start-game.button--home {
-  margin-top: 15%;
-  width: 80%;
+.btn__white {
+  background: #fff;
+  color: #0AA1C8;
+}
+.btn__primary {
   background: transparent;
+  border: 3px solid #fff;
   color: #fff;
-  border: 1px solid #fff;
 }
-
+.btn__add {
+  position: relative;
+  border-radius: 100px;
+  margin: .25em auto 5em;
+}
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #fff;
@@ -83,18 +66,14 @@
   More height than iPhone 4
  */
 @media all and (min-height:540px) {
-  .addteams-wrapper {
-  }
-  .input--team-name,
-  .input--player-name {
+  .addTeams__input {
     padding: .65em 2em;
     font-size: 1.15em;
     letter-spacing: 0px;
   }
 
-  .button--create-team,
-  .button--start-game {
-    padding: .75em 2em;
+  .btn {
+    padding: 1.15em 2em;
   }
 }
 
@@ -103,19 +82,16 @@
   Desktops and tablets
 */
 @media all and (min-width: 760px) {
-  .addteams-wrapper {
+  .addteams {
     margin: 0 auto;
     padding: .35em;
   }
-  .input--team-name,
-  .input--player-name,
-  .button--create-team {
+  .addTeams__input {
     width: 100%;
     margin: .25em auto;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
   }
-  .button--start-game {
+
+  .btn {
     max-width: 45%;
   }
 }

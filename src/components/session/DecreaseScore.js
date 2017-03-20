@@ -5,10 +5,8 @@ class DecreaseScore extends Component {
   render () {
     return (
       <button
-        id="decrease"
-        className="counterButton decrease"
+        className="pointsButton decrease"
         onClick={this.props.decreaseScore}>
-         👎🏻
       </button>
     );
   }

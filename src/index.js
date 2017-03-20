@@ -8,14 +8,12 @@ import 'font-awesome/css/font-awesome.min.css';
 
 // Import main components
 import App from './App';
-import Words from './components/Words';
 
 const Root = () => {
   return (
       <BrowserRouter>
         <div>
           <Match exactly pattern="" component={App} />
-          <Match exactly pattern="/words" component={Words} />
         </div>
       </BrowserRouter>
   )
