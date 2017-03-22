@@ -23,7 +23,7 @@ class Session extends Component {
   }
 
   createSessionObject = () => {
-    this.currentState = {...this.props.session};
+    // this.currentState = {...this.props.session};
     this.currentState = this.sessionObject;
   }
 

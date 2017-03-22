@@ -16,37 +16,7 @@
   outline: 0;
   -webkit-appearance: none; /* remove inner shadow on mobile chrome */
 }
-.btn {
-  cursor: pointer;
-  display: block;
-  width: 60%;
-  text-align: center;
-  font-size: .85em;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 1em auto;
-  padding: 1em;
-  border: 0;
-  border-radius: 100px;
-  transition: all .15s ease-in-out;
-}
-.btn:hover {
-  transform: scale(1.05);
-}
-.btn__white {
-  background: #fff;
-  color: #0AA1C8;
-}
-.btn__primary {
-  background: transparent;
-  border: 3px solid #fff;
-  color: #fff;
-}
-.btn__add {
-  position: relative;
-  border-radius: 100px;
-  margin: .25em auto 5em;
-}
+
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #fff;

@@ -1,0 +1,41 @@
+
+.table {
+  max-height: 45vh;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  overflow-y:auto;
+}
+.table__row {
+  display: block;
+  position: relative;
+  padding: .5em;
+  margin: 0 auto;
+  font-size: 1.15em;
+}
+.table__row--team,
+.table__row--points {
+  display: inline-block;
+  padding: .5em;
+}
+.table__row--team {
+  width: 65%;
+  border-radius: 100px;
+  background: rgba(255,255,255,.1);
+}
+.table__row--points {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  color: #0AA1C8;
+  border-radius: 50%;
+  padding-top: .6em;
+}
+.correct {
+  color: #fff;
+}
+.incorrect {
+  color: rgba(255,255,255,.5);
+  text-decoration: line-through;
+}

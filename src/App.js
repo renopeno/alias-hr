@@ -7,6 +7,7 @@ import AddTeams from './components/AddTeams';
 import Session from './components/Session';
 import WhoIsNext from './components/WhoIsNext';
 import Stats from './components/Stats';
+import Table from './components/Table';
 
 class App extends Component {
   constructor() {
@@ -42,7 +43,8 @@ class App extends Component {
 
   loadGame = () => {
     this.setState({
-      component: "Session"
+      component: "Session",
+      seconds: 8
     });
   }
 
@@ -92,12 +94,12 @@ class App extends Component {
 
   render () {
     return (
-      <div>
+      <div className="app">
         {/* <Nav
           goTo={this.goTo}
         /> */}
 
-        { this.state.component !== "WhoIsNext" &&
+        { this.state.component === "AddTeams" &&
         <div className="balloons">
           <div className="balloon1"></div>
           <div className="balloon2"></div>
@@ -142,6 +144,14 @@ class App extends Component {
             goTo={this.goTo}
             whoIsNext={this.whoIsNext}
             changeStateId={this.changeStateId}
+          />
+        }
+
+        { this.state.component === "Table" &&
+          <Table
+            state={this.state}
+            goTo={this.goTo}
+            loadGame={this.loadGame}
           />
         }
 

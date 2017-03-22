@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import './Table.css';
 
 class CorrectWord extends Component {
   render () {
     return (
-      <div className="row">
+      <div className="table table__row table__row--small">
           <span className="correct">
               {this.props.word}
           </span>
@@ -15,7 +16,7 @@ class CorrectWord extends Component {
 class IncorrectWord extends Component {
   render () {
     return (
-      <div className="row">
+      <div className="table table__row table__row--small">
           <span className="incorrect">
               {this.props.word}
           </span>
@@ -27,7 +28,7 @@ class IncorrectWord extends Component {
 
 class Stats extends Component {
 
-  goToWhoIsNext = () => {
+  sessionPointsToMatchPoints = () => {
     let currentId = this.props.state.id;
     let { currentSessionPoints } = this.props.state.teams[currentId];
 
@@ -43,7 +44,16 @@ class Stats extends Component {
 
     // change state id to fetch next team
     this.props.changeStateId();
-    this.props.goTo("WhoIsNext")
+  }
+
+  goToTable = () => {
+    this.sessionPointsToMatchPoints();
+    this.props.goTo("Table");
+  }
+
+  goToWhoIsNext = () => {
+    this.sessionPointsToMatchPoints();
+    this.props.goTo("WhoIsNext");
   }
 
   render () {
@@ -65,12 +75,22 @@ class Stats extends Component {
           {renderCorrectWords}
           {renderIncorrectWords}
         </div>
-        <button
-          type="button"
-          onClick={this.goToWhoIsNext}
-          className="btn btn__white">
-            Next team
-        </button>
+
+        <div className="btn--fixed-bottom">
+          <button
+            type="button"
+            onClick={this.goToTable}
+            className="btn btn__white">
+              Tablica
+          </button>
+          <button
+            type="button"
+            onClick={this.goToWhoIsNext}
+            className="btn btn__white">
+              Tko je sljedeći?
+          </button>
+        </div>
+
       </div>
     );
   }

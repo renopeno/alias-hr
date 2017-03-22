@@ -4,7 +4,6 @@ import { BrowserRouter, Match } from 'react-router';
 
 import './index.css';
 import './components/AddTeams.css';
-import 'font-awesome/css/font-awesome.min.css';
 
 // Import main components
 import App from './App';
