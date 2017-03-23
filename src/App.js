@@ -44,7 +44,7 @@ class App extends Component {
   loadGame = () => {
     this.setState({
       component: "Session",
-      seconds: 8
+      seconds: 61
     });
   }
 
