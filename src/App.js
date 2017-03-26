@@ -15,7 +15,6 @@ class App extends Component {
     this.state = {
       id: 0,
       cycle: 0,
-      seconds: 3,
       component: "AddTeams",
       session: {},
       teams: []
