@@ -128,7 +128,7 @@ h3 {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 4em;
+  bottom: 2em;
 }
 
 
@@ -136,7 +136,7 @@ h3 {
 @media all and (min-height:540px) {
   h3 {
     font-size: 1.5em;
-    margin: 2em auto;
+    margin: 1em auto;
   }
   .balloons {
     height: 65%;
